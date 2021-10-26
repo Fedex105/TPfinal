@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+  mysql:
+    image: mysql
+    container_name: some_mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports: 
+      - "3306:3306"
+      - "33060:33060"
+    environment:  
+      MYSQL_ROOT_PASSWORD: root
+    networks: 
+      - my-network
+    volumes:
+      - "my-vol:/var/lib/mysql"
+  
+  api:
+    build: ./myapp
+    container_name: api
+    ports: 
+      - "8080:8080"
+    networks: 
+      - my-network
+    depends_on: 
+      - "mysql"
+
+  front: 
+    build: ./proyecto en react FINAL
+    container_name: front
+    ports: 
+     - "80:80" 
+
+networks: 
+  my-network:
+    driver: bridge
+
+volumes: 
+  my-vol:
