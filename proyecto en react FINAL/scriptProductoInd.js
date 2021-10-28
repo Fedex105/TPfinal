@@ -118,7 +118,7 @@ class ProductoCompra extends React.Component{
         var queryDict = {}
         location.search.substr(1).split("&").forEach(function(item) {queryDict[item.split("=")[0]] = item.split("=")[1]})
 
-        let resp = axios.get("http://localhost:8080/productos/" + queryDict.id);
+        let resp = axios.get("http://40.71.218.69:8080/productos/" + queryDict.id);
         resp.then(x => {
             console.log(x.data)
             this.setState({producto: x.data})

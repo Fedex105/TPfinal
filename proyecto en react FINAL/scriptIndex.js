@@ -165,7 +165,7 @@ class Destacados extends React.Component{
    
 
     componentDidMount(){
-        let resp = axios.get("http://localhost:8080/productos");
+        let resp = axios.get("http://40.71.218.69:8080/productos");
         resp.then(x => {
             this.setState({productos: x.data})
             console.log(x.data)
@@ -250,7 +250,7 @@ class ListadoProductos extends React.Component{
     }
 
     componentDidMount(){
-        let resp = axios.get("http://localhost:8080/productos");
+        let resp = axios.get("http://40.71.218.69:8080/productos");
         resp.then(x => {
             this.setState({productos: x.data})
         })
